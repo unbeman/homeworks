@@ -23,8 +23,13 @@ public:
         std::cout << "Author: " << author << std::endl;
     }
 
+    friend std::ostream &operator<<(std::ostream & stream, const Cart & cart){
+        stream << "Title: " << std::string(cart.get_title(), cart.get_title() + strlen(cart.get_title())) << std::endl;
+        stream << "Author: " << std::string(cart.get_author(), cart.get_author() + strlen(cart.get_author())) << std::endl;
+    }
+
     char* get_title() const { return (char*) title; }
-    char* get_author() const { return (char*) author; }
+    char* get_author() const { return  (char*) author; }
 
     void set_title(char const * const str)
     {
